@@ -1,0 +1,186 @@
+#uploader-app {
+	padding: 20px;
+	max-width: 900px;
+}
+
+/* Drag-drop zone */
+#uploader-dropzone {
+	border: 2px dashed var(--color-border-dark, #aaa);
+	border-radius: 8px;
+	padding: 40px 20px;
+	text-align: center;
+	cursor: pointer;
+	background: var(--color-background-hover, #f8f8f8);
+	margin: 16px 0;
+	transition: background 0.2s, border-color 0.2s;
+}
+#uploader-dropzone.hover,
+#uploader-dropzone:hover {
+	border-color: var(--color-primary, #0082c9);
+	background: var(--color-primary-light, #e0f0ff);
+}
+#uploader-dropzone-inner {
+	font-size: 1.1em;
+	color: var(--color-text-maxcontrast, #555);
+	pointer-events: none;
+}
+
+/* Folder/group bar */
+#uploader-folder-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 12px 0;
+	flex-wrap: wrap;
+}
+.btn-folder-toggle {
+	font-size: 1.1em;
+	padding: 1px 8px;
+	min-width: 28px;
+}
+#uploader-folder-controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+#uploader-destdir {
+	min-width: 200px;
+}
+
+/* Button row */
+#uploader-buttons {
+	margin: 8px 0 16px;
+	display: flex;
+	gap: 8px;
+}
+
+/* File table */
+#uploader-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 12px 0;
+}
+#uploader-table th,
+#uploader-table td {
+	padding: 6px 10px;
+	border-bottom: 1px solid var(--color-border, #e0e0e0);
+	vertical-align: middle;
+}
+#uploader-table thead th {
+	font-weight: 600;
+	background: var(--color-background-dark, #f0f0f0);
+}
+.filename { font-weight: 500; }
+.filesize  { color: var(--color-text-maxcontrast, #888); font-size: 0.9em; }
+
+/* Progress bar */
+.progress-bar {
+	width: 200px;
+	height: 12px;
+	background: var(--color-border, #ddd);
+	border-radius: 6px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 6px;
+}
+.progress-bar-inner {
+	height: 100%;
+	width: 0%;
+	background: var(--color-primary, #0082c9);
+	transition: width 0.3s;
+}
+.progress-pct {
+	font-size: 0.85em;
+	color: var(--color-text-maxcontrast, #666);
+}
+
+/* Row states */
+tr.upload-complete  td { background: var(--color-success-light, #e8f5e9); }
+tr.upload-error     td { background: var(--color-error-light, #fce4ec); }
+tr.upload-aborted   td { background: var(--color-warning-light, #fff3e0); }
+
+/* Share bar */
+#uploader-share-bar {
+	margin: 16px 0;
+	padding: 14px;
+	background: var(--color-background-dark, #f5f5f5);
+	border-radius: 8px;
+}
+#uploader-share-bar.hidden { display: none; }
+.uploader-share-top-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-bottom: 8px;
+}
+.uploader-share-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 8px 0;
+}
+.uploader-share-row label { min-width: 120px; }
+#uploader-recipients { min-width: 260px; }
+.uploader-show-shared { font-size: 0.9em; }
+
+/* Link icons */
+.link-icon {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+}
+
+/* Speed indicator */
+.upload-speed {
+	font-size: 0.82em;
+	color: var(--color-text-maxcontrast, #888);
+	margin: 0 8px;
+	min-width: 70px;
+	display: inline-block;
+}
+
+/* Remove file button */
+.btn-remove-file {
+	font-size: 1em;
+	font-weight: bold;
+	padding: 1px 6px;
+	margin-right: 6px;
+	color: var(--color-error, #e9322d);
+	line-height: 1;
+}
+
+/* Abort button */
+.btn-abort-one {
+	font-size: 0.8em;
+	padding: 2px 6px;
+	margin-left: 4px;
+}
+
+/* Info text */
+#uploader-info {
+	margin-top: 24px;
+	color: var(--color-text-maxcontrast, #666);
+	font-size: 0.95em;
+}
+
+/* Personal settings */
+#uploader-personal-settings p {
+	margin: 10px 0;
+}
+#uploader-personal-settings label {
+	display: inline-block;
+	min-width: 160px;
+}
+#uploader-default-folder,
+#uploader-default-group {
+	min-width: 200px;
+}
+
+/* Tooltip */
+.info {
+	cursor: help;
+	color: var(--color-text-maxcontrast, #888);
+}
