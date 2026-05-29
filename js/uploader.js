@@ -64,13 +64,21 @@
 			});
 
 			el('btn-browse-folder').addEventListener('click', function () {
+				var gid = el('uploader-group-select').value;
+				var grantPrefix = gid ? ('/.uga_grants/' + gid) : '';
 				OC.dialogs.filepicker(
 					t('uploader', 'Choose upload folder'),
-					function (path) { el('uploader-destdir').value = path; },
+					function (path) {
+						if (grantPrefix && path.startsWith(grantPrefix)) {
+							path = path.slice(grantPrefix.length) || '';
+						}
+						el('uploader-destdir').value = path;
+					},
 					false,
 					'httpd/unix-directory',
 					true,
-					OC.dialogs.FILEPICKER_TYPE_CHOOSE
+					OC.dialogs.FILEPICKER_TYPE_CHOOSE,
+					grantPrefix || undefined
 				);
 			});
 
