@@ -176,7 +176,7 @@ tr.upload-aborted   td { background: var(--color-warning-light, #fff3e0); }
 }
 #uploader-default-folder,
 #uploader-default-group {
-	min-width: 200px;
+	min-width: 280px;
 }
 
 /* Tooltip */

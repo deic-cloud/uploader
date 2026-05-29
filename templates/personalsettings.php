@@ -3,7 +3,7 @@
 /** @var array $_ */
 \OCP\Util::addScript('uploader', 'personalsettings');
 ?>
-<div id="uploader-personal-settings">
+<div id="uploader-personal-settings" class="section">
 	<h3><?php p($l->t('Uploader defaults')); ?></h3>
 	<p>
 		<label for="uploader-default-folder"><?php p($l->t('Default upload folder')); ?></label>
