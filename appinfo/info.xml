@@ -15,7 +15,7 @@
 	</types>
 	<category>files</category>
 	<dependencies>
-		<nextcloud min-version="28" max-version="34"/>
+		<nextcloud min-version="28" max-version="35"/>
 	</dependencies>
 	<navigations>
 		<navigation>
