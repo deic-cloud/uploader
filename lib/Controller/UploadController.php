@@ -116,7 +116,7 @@ class UploadController extends Controller {
 
 	private function resolveBaseFolder(string $userId, string $group): \OCP\Files\Folder {
 		if ($group !== '') {
-			return $this->rootFolder->getUserFolder($userId)->get('.uga_grants/' . $group);
+			return $this->rootFolder->getUserFolder($userId)->get('Grants/' . $group);
 		}
 		return $this->rootFolder->getUserFolder($userId);
 	}

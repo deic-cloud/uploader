@@ -65,7 +65,7 @@
 
 			el('btn-browse-folder').addEventListener('click', function () {
 				var gid = el('uploader-group-select').value;
-				var grantPrefix = gid ? ('/.uga_grants/' + gid) : '';
+				var grantPrefix = gid ? ('/Grants/' + gid) : '';
 				OC.dialogs.filepicker(
 					t('uploader', 'Choose upload folder'),
 					function (path) {

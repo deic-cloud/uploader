@@ -95,7 +95,7 @@ class ShareController extends Controller {
 
 	private function resolveNode(string $userId, string $group, string $path): \OCP\Files\Node {
 		if ($group !== '') {
-			$base = $this->rootFolder->getUserFolder($userId)->get('.uga_grants/' . $group);
+			$base = $this->rootFolder->getUserFolder($userId)->get('Grants/' . $group);
 		} else {
 			$base = $this->rootFolder->getUserFolder($userId);
 		}
