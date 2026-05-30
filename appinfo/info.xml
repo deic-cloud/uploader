@@ -2,7 +2,7 @@
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>uploader</id>
-	<name>Uploader</name>
+	<name>Upload</name>
 	<summary>Upload large files and share them via links</summary>
 	<description>HTML5 chunked upload of large files with optional email sharing of public links.</description>
 	<version>2.0.0</version>

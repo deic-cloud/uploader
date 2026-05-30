@@ -20,7 +20,7 @@ class PersonalSection implements IIconSection {
 	}
 
 	public function getName(): string {
-		return $this->l10n->t('Uploader');
+		return $this->l10n->t('Upload');
 	}
 
 	public function getPriority(): int {
