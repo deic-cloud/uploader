@@ -5,7 +5,7 @@
 	<name>Upload</name>
 	<summary>Upload large files and share them via links</summary>
 	<description>HTML5 chunked upload of large files with optional email sharing of public links.</description>
-	<version>2.0.0</version>
+	<version>2.0.1</version>
 	<licence>agpl</licence>
 	<author mail="fror@dtu.dk">Frederik Orellana</author>
 	<author>Stephan Neblung</author>

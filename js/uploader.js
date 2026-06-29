@@ -129,9 +129,13 @@
 			el('btn-share-uploaded').addEventListener('click', function () { self.doShare(); });
 
 			window.addEventListener('beforeunload', function (e) {
-				if (self.hasPendingShares()) {
+				// Only warn while an upload is actually running — leaving would
+				// abort it. Completed uploads are already saved in Nextcloud;
+				// creating a public share link afterwards is optional, so it must
+				// not trigger a "you may lose data" prompt.
+				if (self.inProgress) {
 					e.preventDefault();
-					e.returnValue = t('uploader', "You have uploaded files that haven't been shared yet.");
+					e.returnValue = t('uploader', 'An upload is still in progress. Leaving this page will cancel it.');
 					return e.returnValue;
 				}
 			});
@@ -411,11 +415,6 @@
 			el('uploader-buttons').style.display = 'none';
 			var shareBar = el('uploader-share-bar');
 			if (shareBar) { shareBar.classList.add('hidden'); }
-		},
-
-		hasPendingShares: function () {
-			var rows = qsa('#uploader-table tr.upload-complete[data-filepath]');
-			return rows.length > 0 && !el('btn-share-uploaded').disabled;
 		},
 
 		doShare: function () {
