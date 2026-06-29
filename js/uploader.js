@@ -3,6 +3,31 @@
 (function () {
 	'use strict';
 
+	// Suppress the .uga_grants breadcrumb entry in the NC file picker
+	function suppressGrantCrumb() {
+		function hide() {
+			var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+			var node;
+			while ((node = walker.nextNode())) {
+				if (node.textContent.trim() !== '.uga_grants') continue;
+				var target = node.parentElement;
+				var el = target;
+				while (el && el !== document.body) {
+					if (['LI', 'A', 'BUTTON'].includes(el.tagName)) {
+						target = el;
+						if (el.parentElement && ['UL', 'OL', 'NAV'].includes(el.parentElement.tagName)) break;
+					}
+					el = el.parentElement;
+				}
+				if (target) target.style.display = 'none';
+			}
+		}
+		hide();
+		var observer = new MutationObserver(hide);
+		observer.observe(document.body, { subtree: true, childList: true, characterData: true });
+		return observer;
+	}
+
 	// Helpers
 	function el(id)    { return document.getElementById(id); }
 	function qs(sel)   { return document.querySelector(sel); }
@@ -65,10 +90,12 @@
 
 			el('btn-browse-folder').addEventListener('click', function () {
 				var gid = el('uploader-group-select').value;
-				var grantPrefix = gid ? ('/Grants/' + gid) : '';
+				var grantPrefix = gid ? ('/.uga_grants/' + gid) : '';
+				var observer = grantPrefix ? suppressGrantCrumb() : null;
 				OC.dialogs.filepicker(
 					t('uploader', 'Choose upload folder'),
 					function (path) {
+						if (observer) observer.disconnect();
 						if (grantPrefix && path.startsWith(grantPrefix)) {
 							path = path.slice(grantPrefix.length) || '';
 						}
