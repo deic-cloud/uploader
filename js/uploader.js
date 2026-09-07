@@ -354,7 +354,10 @@
 			el('btn-share-uploaded').disabled = false;
 
 			var params = new URLSearchParams(window.location.search);
-			if (params.get('filetransfer') === 'true') {
+			// Bare ?filetransfer and ?filetransfer=true both mean the dedicated
+			// transfer page (transfer.sciencedata.dk redirects with the bare form):
+			// after upload, open the share fields and pre-tick sharing.
+			if (params.has('filetransfer')) {
 				var meta = el('share-meta-fields');
 				if (meta) { meta.style.display = ''; }
 				var cb = el('shareCheckbox');
