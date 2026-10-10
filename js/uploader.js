@@ -445,11 +445,14 @@
 				recipient:  el('uploader-recipients').value,
 				expiration: (expEl  && expEl.style.display  !== 'none') ? expEl.value  : '',
 				password:   (pwEl   && pwEl.style.display   !== 'none') ? pwEl.value   : '',
+				requireLogin: !!(el('requireLoginCheckbox') && el('requireLoginCheckbox').checked),
 			};
 
-			var msg = t('uploader',
-				'Sharing via public links to unauthenticated users may not be appropriate for confidential or sensitive data.' +
-				' You are solely responsible for data shared via public links.\n\nDo you wish to proceed?');
+			var msg = payload.requireLogin
+				? t('uploader', 'Only people with an account will be able to open the links, and every access is logged.\n\nDo you wish to proceed?')
+				: t('uploader',
+					'Sharing via public links to unauthenticated users may not be appropriate for confidential or sensitive data.' +
+					' You are solely responsible for data shared via public links.\n\nDo you wish to proceed?');
 
 			OC.dialogs.confirm(msg, t('core', 'Confirm'), function (ok) {
 				if (!ok) { return; }

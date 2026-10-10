@@ -14,6 +14,9 @@ $TRANSLATIONS = [
 	'Recipients'                   => 'Modtagere',
 	'Space- or comma-separated email addresses' => 'Mellemrums- eller kommaseparerede e-mailadresser',
 	'Expiration'                   => 'Udløbsdato',
+	'Require login' => 'Kræv login',
+	"Only people with an account will be able to open the links, and every access is logged.\n\nDo you wish to proceed?" => "Kun personer med en konto vil kunne åbne linkene, og al adgang logges.\n\nVil du fortsætte?",
+	'Only people with an account can open the links; every access is logged.' => 'Kun personer med en konto kan åbne linkene; al adgang logges.',
 	'Password protect'             => 'Adgangskodebeskyt',
 	'Password'                     => 'Adgangskode',
 	'Share'                        => 'Del',
@@ -53,7 +56,7 @@ $TRANSLATIONS = [
 	'%s has shared a file with you'       => '%s har delt en fil med dig',
 	'%s has shared %d files with you'     => '%s har delt %d filer med dig',
 
-	'This service allows ScienceData users to send large files to specific recipients — both other users and externals. Simply drag and drop files above, click "Upload", fill in recipients\' email addresses and click "Share".' =>
-		'Denne tjeneste giver ScienceData-brugere mulighed for at sende store filer til specifikke modtagere — både andre brugere og eksterne. Træk og slip filer ovenfor, klik på "Upload", udfyld modtagernes e-mailadresser og klik på "Del".',
+	'This service allows its users to send large files to specific recipients — both other users and externals. Simply drag and drop files above, click "Upload", fill in recipients\' email addresses and click "Share".' =>
+		'Denne tjeneste giver sine brugere mulighed for at sende store filer til specifikke modtagere — både andre brugere og eksterne. Træk og slip filer ovenfor, klik på "Upload", udfyld modtagernes e-mailadresser og klik på "Del".',
 ];
 $PLURAL_FORMS = 'nplurals=2; plural=(n != 1);';

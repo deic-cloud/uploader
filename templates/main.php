@@ -42,6 +42,13 @@
 				<input type="checkbox" id="passwordCheckbox">
 				<input type="password" id="linkPassText" autocomplete="off" placeholder="<?php p($l->t('Password')); ?>" style="display:none;">
 			</div>
+			<?php if (!empty($_['require_login_available'])) { ?>
+			<div class="uploader-share-row">
+				<label for="requireLoginCheckbox"><?php p($l->t('Require login')); ?></label>
+				<span class="info" title="<?php p($l->t('Only people with an account can open the links; every access is logged.')); ?>">ⓘ</span>
+				<input type="checkbox" id="requireLoginCheckbox">
+			</div>
+			<?php } ?>
 		</div>
 	</div>
 
@@ -81,7 +88,7 @@
 	</div>
 
 	<div id="uploader-info" style="display:none;">
-		<p><?php p($l->t('This service allows ScienceData users to send large files to specific recipients — both other users and externals. Simply drag and drop files above, click "Upload", fill in recipients\' email addresses and click "Share".')); ?></p>
+		<p><?php p($l->t('This service allows its users to send large files to specific recipients — both other users and externals. Simply drag and drop files above, click "Upload", fill in recipients\' email addresses and click "Share".')); ?></p>
 	</div>
 </div>
 </div>

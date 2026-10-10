@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace OCA\Uploader\Controller;
 
+use OCP\App\IAppManager;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
@@ -22,6 +23,7 @@ class PageController extends Controller {
 		private IConfig        $config,
 		private IDBConnection  $db,
 		private IURLGenerator  $urlGenerator,
+		private IAppManager    $appManager,
 	) {
 		parent::__construct('uploader', $request);
 	}
@@ -46,6 +48,7 @@ class PageController extends Controller {
 			'upload_url'    => $this->urlGenerator->linkToRoute('uploader.Upload.upload'),
 			'cancel_url'    => $this->urlGenerator->linkToRoute('uploader.Upload.cancel'),
 			'share_url'     => $this->urlGenerator->linkToRoute('uploader.Share.share'),
+			'require_login_available' => ShareController::clusterAvailable($this->appManager),
 			'shared_files_url' => $this->urlGenerator->linkToRoute('files.view.index') . '?dir=%2F&view=sharingout&links_only=true&files_only=true',
 		], 'user');
 	}
